@@ -38,6 +38,20 @@ data = data.sort(function(a, b) {
 }).reverse().slice(1,51);
 ```
 
+I also need to reference the function `drawPie` with an on click event. The click event needs to happen when a bar is being clicked so this the place to put it.
+
+```js
+var bars = svg.selectAll(".bar").data(data, function(d) { return d.country; })
+bars.enter().append("rect")
+  .attr("class", "bar")
+  .attr("y", y(0))
+  .attr("height", height - y(0))
+  .on("click", function(d) {
+    drawPie(d);
+  });
+```
+
+
 ### The pie chart
 
 [Pie chart used](https://bl.ocks.org/santi698/f3685ca8a1a7f5be1967f39f367437c0)
@@ -50,14 +64,36 @@ So I made an variable in which I select the svg with the class `.piechart` and `
 var headingPie = d3.select(".piechart").append("h2");
 
 ```
-Since I'm loading in a second SVG that has the same variables such as: `width`, `height`, `svg` and `g` I made some simple adjustments by adding Pie after the variables.
+
+And later I use the variable to fill the `h2` with the correct data.
 
 ```js
-var widthPie = 300,
-    heightPie = 300,
-    svgPie = d3.select(".piechart").append("svg")
-          .attr("width", widthPie)
-          .attr("height", heightPie),
-    radius = Math.min(widthPie, heightPie) / 2,
-    gPie = svgPie.append("g").attr("transform", "translate(" + widthPie / 2 + "," + heightPie / 2 + ")");
+function drawPie(data) {headingPie.text(data.country);
+
+```
+
+Since I'm loading in a second SVG that has the same variables such as: `width`, `height`, `svg` and `g` I made some simple adjustments by adding Pie after the variables.
+
+
+
+The next thing I needed to do was put the data of the selected bar chart in a pie chart. For this I used a [snippet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) using the `for in` statement.
+
+I made an empty array for the data to be stored in.
+
+```js
+var sortedData = [];
+```
+
+Then I check the keys if they are equal to `spirit_servings`, `wine_servings` and `beer_servings` and if so then `push` into `sortedData` in a object with a `type` and `value`.
+
+```js
+for (key in data) {
+
+  if (key === "spirit_servings" || key === "wine_servings" || key === "beer_servings") {
+    sortedData.push({
+        type: key,
+        value: data[key]
+    })
+  }
+}
 ```

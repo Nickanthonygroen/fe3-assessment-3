@@ -137,7 +137,7 @@ var path = d3.arc()
     .outerRadius(radius - 10)
     .innerRadius(0);
 
-// The piechart gets filled in with the data.
+// The piechart gets filled in with the data to show country name above the piechart.
 function drawPie(data) {
   headingPie.text(data.country);
 
