@@ -1,5 +1,7 @@
 # Top 50 Countries that consume the most alcohol.
 
+![preview](./preview.png)
+
 ## Explore
 
 The data from the dataset is a list that is split down in 5 columns: The countries from A-Z, amount of beer servings, amount of spirit servings(which is liquor I guess), amount of wine servings and the total amount of pure alcohol in litres.
