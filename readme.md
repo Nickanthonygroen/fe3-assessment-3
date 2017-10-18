@@ -118,3 +118,29 @@ var allArcs = gPie.selectAll(".arc")
         return  d.data.type;
       });
 ```
+
+# Features
+
+* `.scaleBand()`
+* `.scaleLinear()`
+* `.range()`
+* `.select()`
+* `.selectAll()`
+* `.append()`
+* `.forEach()`
+* `.Number()`
+* `.sort()`
+* `.reverse()`
+* `.call()`
+* `.enter()`
+* `.on()`
+* `.domain()`
+* `.transition()`
+* `.outerRadius()`
+* `.push()`
+* `.for(...in...)`
+
+
+## License
+
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0.nl.html) Nick Groen
