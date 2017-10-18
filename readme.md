@@ -22,7 +22,7 @@ Used a `.forEach` function in combination with `Number` to add beer, mixes and w
 
 ```js
 data.forEach(function(d) {
-  d.total = Number(d.beer) + Number(d.mixes) + Number(d.wine);
+  d.total = Number(d.beer_servings) + Number(d.spirit_servings) + Number(d.wine_servings);
 });
 
 
