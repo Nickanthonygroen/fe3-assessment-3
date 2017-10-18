@@ -9,7 +9,6 @@ https://bl.ocks.org/mbostock/3887235
 https://stackoverflow.com/questions/979256/sorting-an-array-of-javascript-objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 http://jsfiddle.net/U97EY/
-http://bl.ocks.org/weiglemc/6185069
 */
 
 //Load the data

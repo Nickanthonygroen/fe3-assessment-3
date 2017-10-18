@@ -84,7 +84,7 @@ I made an empty array for the data to be stored in.
 var sortedData = [];
 ```
 
-Then I check the keys if they are equal to `spirit_servings`, `wine_servings` and `beer_servings` and if so then `push` into `sortedData` in a object with a `type` and `value`.
+Then I check the keys if they are equal to `spirit_servings`, `wine_servings` and `beer_servings` and if so then `.push()` into `sortedData` in a object with a `type` and `value`.
 
 ```js
 for (key in data) {
@@ -96,4 +96,23 @@ for (key in data) {
     })
   }
 }
+```
+
+Lastly, what needs to happen is that the piechart needs to empty the values and create a new path for the new data.
+
+```js
+d3.selectAll("path").remove();
+```
+
+For this bit I used a snippet containing the `.enter()` function and updating the piechart.
+
+```js
+var allArcs = gPie.selectAll(".arc")
+  .data(pie(sortedData))
+  .enter()
+  .append("svg:path")
+      .attr("d", path)
+      .attr("class", function(d) {
+        return  d.data.type;
+      });
 ```
