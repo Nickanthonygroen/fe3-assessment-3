@@ -19,8 +19,8 @@ d3.csv("data.csv", function(error, data) {
 
 // Set the dimensions of the graph
 var margin = {top: 20, right: 20, bottom: 160, left: 60},
-    width = 1200 - margin.left - margin.right,
-    height = 620 - margin.top - margin.bottom;
+    width = 1440 - margin.left - margin.right,
+    height = 720 - margin.top - margin.bottom;
 
 // Set the ranges
 var x = d3.scaleBand()
@@ -46,13 +46,14 @@ var svg = d3.select(".barchart")
 function draw(data) {
 // Fill d.total with the columns with all numbers in these columns
   data.forEach(function(d) {
-    d.total = Number(d.beer) + Number(d.mixes) + Number(d.wine);
+    d.total = Number(d.beer_servings) + Number(d.spirit_servings) + Number(d.wine_servings);
   });
+  console.log(data);
 
 //Sort the data from high to low with a, b and slice from 31 to get a top 30 list.
   data = data.sort(function(a, b) {
     return a.total - b.total;
-  }).reverse().slice(1, 31);
+  }).reverse().slice(1,51);
 
 //Make the domain for the y & x axis. y  with a total number and x with a string of countries.
 
@@ -126,6 +127,7 @@ var widthPie = 300,
     radius = Math.min(widthPie, heightPie) / 2,
     gPie = svgPie.append("g").attr("transform", "translate(" + widthPie / 2 + "," + heightPie / 2 + ")");
 
+
 // The piechart gets drawn.
 var pie = d3.pie()
     .sort(null)
@@ -138,12 +140,13 @@ var path = d3.arc()
 // The piechart gets filled in with the data.
 function drawPie(data) {
   headingPie.text(data.country);
+
   // Create empty array to store sortedData
   var sortedData = [];
   // Checks every key for the right data.
   for (key in data) {
-    // Is the key equal to mixes, wine and beer? If yes, push into sortedData.
-    if (key === "mixes" || key === "wine" || key === "beer") {
+    // Is the key equal to spirit_servings, wine_servings and beer_servings? If yes, push into sortedData.
+    if (key === "spirit_servings" || key === "wine_servings" || key === "beer_servings") {
       sortedData.push({
         // Makes a object in the array sortedData with the type of drink and the value of the drink.
           type: key,
@@ -151,6 +154,7 @@ function drawPie(data) {
       })
     }
   }
+
 //Makes the piechart empty to be filled again.
   d3.selectAll("path").remove();
 //The target "sortedData" gets put in the piechart.
@@ -162,4 +166,5 @@ function drawPie(data) {
         .attr("class", function(d) {
           return  d.data.type;
         });
+
   };

@@ -20,7 +20,7 @@ main {
 
 .tick text {
   fill: #fff;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 h1 {
@@ -39,27 +39,26 @@ h2 {
 
 .bar {
   fill: #50FDCC;
-  width: 2em;
+  width: 0.8em;
 }
 
 .bar:hover {
   opacity: 0.6;
-  transition: 0.3s;
 }
 
 .bar:active {
   fill: red;
 }
 
-.beer {
+.beer_servings {
   fill: #f1c40f;
 }
 
-.wine {
+.wine_servings {
   fill: #8e44ad;
 }
 
-.mixes {
+.spirit_servings {
   fill: #bdc3c7;
 }
 
@@ -68,7 +67,17 @@ h2 {
   fill: #000;
 }
 
+.barchart {
+  padding-left: 10em;
+}
 
+.piechart {
+  float: right;
+  margin-top: -10em;
+  margin-left: -10em;
+  margin-right: 8em;
+  transition: 0.3s;
+}
 /* basic positioning */
 
 .legend {
