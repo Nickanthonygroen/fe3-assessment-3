@@ -1,0 +1,68 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #212020;
+  color: #fff;
+}
+
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 5em;
+}
+.tick text {
+  fill: #fff;
+  font-size: 1.5em;
+}
+
+h1 {
+  margin-top: 2em;
+  margin-left: 3.5em;
+}
+h2 {
+  margin-left: 5em;
+}
+
+.domain,
+.tick line {
+  stroke-width: 2;
+  stroke: #fff;
+}
+
+.bar {
+  fill: #50FDCC;
+  width: 2em;
+}
+
+.bar:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.bar:active {
+  fill: red;
+}
+
+.beer {
+  fill: #f1c40f;
+}
+
+.wine {
+  fill: #8e44ad;
+}
+
+.mixes {
+  fill: #1abc9c;
+}
+
+.arc text-transform: uppercase; {
+  fill: #000;
+}
