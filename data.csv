@@ -1,4 +1,4 @@
-country,beer_servings,spirit_servings,wine_servings,total_litres_of_pure_alcohol
+country,beer,mixes,wine,litres
 Afghanistan,0,0,0,0.0
 Albania,89,132,54,4.9
 Algeria,25,0,14,0.7
