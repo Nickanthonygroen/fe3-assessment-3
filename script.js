@@ -51,7 +51,7 @@ function draw(data) {
 //Sort the data from high to low with a, b and slice from 31 to get a top 30 list.
   data = data.sort(function(a, b) {
     return a.total - b.total;
-  }).reverse().slice(0,51);
+  }).reverse().slice(0,49);
 
 //Make the domain for the y & x axis. y  with a total number and x with a string of countries.
 
