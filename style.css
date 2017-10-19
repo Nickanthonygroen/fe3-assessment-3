@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
@@ -11,58 +10,105 @@ body {
   color: #fff;
 }
 
-
-main{
+main {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   margin-top: 5em;
 }
+
 .tick text {
   fill: #fff;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 h1 {
   margin-top: 2em;
   margin-left: 3.5em;
 }
+
 h2 {
   margin-left: 5em;
 }
 
-.domain,
-.tick line {
+.domain, .tick line {
   stroke-width: 2;
   stroke: #fff;
 }
 
 .bar {
   fill: #50FDCC;
-  width: 2em;
+  width: 1.3em;
 }
 
 .bar:hover {
   opacity: 0.6;
-  transition: 0.3s;
 }
+
 .bar:active {
   fill: red;
 }
 
-.beer {
+.beer_servings {
   fill: #f1c40f;
 }
 
-.wine {
+.wine_servings {
   fill: #8e44ad;
 }
 
-.mixes {
-  fill: #1abc9c;
+.spirit_servings {
+  fill: #bdc3c7;
 }
 
-.arc text-transform: uppercase; {
+.arc text-transform: uppercase;
+{
   fill: #000;
+}
+
+.barchart {
+  padding-left: 10em;
+}
+
+.piechart {
+  float: right;
+  margin-top: -10em;
+  margin-left: -10em;
+  margin-right: 8em;
+  transition: 0.3s;
+}
+/* basic positioning */
+
+.legend {
+  list-style: none;
+  padding-left: 7.5em;
+}
+
+.legend li {
+  float: left;
+  margin-right: 10px;
+}
+
+.legend span {
+  border: 1px solid #ccc;
+  float: left;
+  width: 12px;
+  height: 12px;
+  margin: 2px;
+}
+
+
+/* your colors */
+
+.legend .superawesome {
+  background-color: #f1c40f;
+}
+
+.legend .awesome {
+  background-color: #8e44ad;
+}
+
+.legend .kindaawesome {
+  background-color: #bdc3c7;
 }

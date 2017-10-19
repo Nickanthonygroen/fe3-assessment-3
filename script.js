@@ -5,11 +5,9 @@ https://github.com/fivethirtyeight/data/blob/b667fa08b172fdc91356e00cabf44c50955
 Sources for the code:
 https://bl.ocks.org/d3noob/bdf28027e0ce70bd132edc64f1dd7ea4
 https://bl.ocks.org/santi698/f3685ca8a1a7f5be1967f39f367437c0
-https://bl.ocks.org/mbostock/3887235
 https://stackoverflow.com/questions/979256/sorting-an-array-of-javascript-objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 http://jsfiddle.net/U97EY/
-http://bl.ocks.org/weiglemc/6185069
 */
 
 //Load the data
@@ -19,8 +17,8 @@ d3.csv("data.csv", function(error, data) {
 
 // Set the dimensions of the graph
 var margin = {top: 20, right: 20, bottom: 160, left: 60},
-    width = 1200 - margin.left - margin.right,
-    height = 620 - margin.top - margin.bottom;
+    width = 1440 - margin.left - margin.right,
+    height = 720 - margin.top - margin.bottom;
 
 // Set the ranges
 var x = d3.scaleBand()
@@ -46,13 +44,14 @@ var svg = d3.select(".barchart")
 function draw(data) {
 // Fill d.total with the columns with all numbers in these columns
   data.forEach(function(d) {
-    d.total = Number(d.beer) + Number(d.mixes) + Number(d.wine);
+    d.total = Number(d.beer_servings) + Number(d.spirit_servings) + Number(d.wine_servings);
   });
+  console.log(data);
 
 //Sort the data from high to low with a, b and slice from 31 to get a top 30 list.
   data = data.sort(function(a, b) {
     return a.total - b.total;
-  }).reverse().slice(1, 31);
+  }).reverse().slice(0,51);
 
 //Make the domain for the y & x axis. y  with a total number and x with a string of countries.
 
@@ -92,7 +91,7 @@ function draw(data) {
     // Select the xAxis for the transition
     svg.select(".x.axis")
       .transition()
-      .duration(300)
+      .duration(100)
       .call(d3.axisBottom(x))
 
     // The countries get put into the bars.
@@ -108,7 +107,7 @@ function draw(data) {
 
     // Transition with the bar elements and the height of the bars gets defined.
     bars.transition()
-      .duration(300)
+      .duration(1000)
       .attr("x", function(d) { return x(d.country); })
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.total); })
@@ -126,6 +125,7 @@ var widthPie = 300,
     radius = Math.min(widthPie, heightPie) / 2,
     gPie = svgPie.append("g").attr("transform", "translate(" + widthPie / 2 + "," + heightPie / 2 + ")");
 
+
 // The piechart gets drawn.
 var pie = d3.pie()
     .sort(null)
@@ -135,15 +135,16 @@ var path = d3.arc()
     .outerRadius(radius - 10)
     .innerRadius(0);
 
-// The piechart gets filled in with the data.
+// The piechart gets filled in with the data to show country name above the piechart.
 function drawPie(data) {
   headingPie.text(data.country);
+
   // Create empty array to store sortedData
   var sortedData = [];
   // Checks every key for the right data.
   for (key in data) {
-    // Is the key equal to mixes, wine and beer? If yes, push into sortedData.
-    if (key === "mixes" || key === "wine" || key === "beer") {
+    // Is the key equal to spirit_servings, wine_servings and beer_servings? If yes, push into sortedData.
+    if (key === "spirit_servings" || key === "wine_servings" || key === "beer_servings") {
       sortedData.push({
         // Makes a object in the array sortedData with the type of drink and the value of the drink.
           type: key,
@@ -151,6 +152,7 @@ function drawPie(data) {
       })
     }
   }
+
 //Makes the piechart empty to be filled again.
   d3.selectAll("path").remove();
 //The target "sortedData" gets put in the piechart.
@@ -162,4 +164,6 @@ function drawPie(data) {
         .attr("class", function(d) {
           return  d.data.type;
         });
+
+
   };
