@@ -37,7 +37,7 @@ For the sorting I had to use some stackoverflow: [Code for sorting the array](ht
 ```js
 data = data.sort(function(a, b) {
   return a.total - b.total;
-}).reverse().slice(1,49);
+}).reverse().slice(0,49);
 ```
 
 I also need to reference the function `drawPie` with an on click event. The click event needs to happen when a bar is being clicked so this the place to put it.
