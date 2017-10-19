@@ -108,7 +108,7 @@ function draw(data) {
 
     // Transition with the bar elements and the height of the bars gets defined.
     bars.transition()
-      .duration(300)
+      .duration(1000)
       .attr("x", function(d) { return x(d.country); })
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.total); })
