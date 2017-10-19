@@ -15,7 +15,7 @@ Also a list of 193 countries is a bit excessive so I'll probably slice a big chu
 
 ### The bar chart
 
-[Bar chart used ](https://bl.ocks.org/d3noob/bdf28027e0ce70bd132edc64f1dd7ea4)
+[Bar chart used ](https://bl.ocks.org/d3noob/bdf28027e0ce70bd132edc64f1dd7ea4) from [D3Noob](https://github.com/d3noob)
 
 
 I started with a bar chart to make a top 30 list of countries depending of the amount of alcohol they consumed.
@@ -56,7 +56,7 @@ bars.enter().append("rect")
 
 ### The pie chart
 
-[Pie chart used](https://bl.ocks.org/santi698/f3685ca8a1a7f5be1967f39f367437c0)
+[Pie chart used](https://bl.ocks.org/santi698/f3685ca8a1a7f5be1967f39f367437c0) from [Santiago Ocamica](https://github.com/santi698)
 
 What I wanted was to show the different kinds of alcohol per country when clicking on the bar in the bar chart. So when a bar was clicked there had to shown a name above the piechart to know which country.
 

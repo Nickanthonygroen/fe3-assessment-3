@@ -5,7 +5,6 @@ https://github.com/fivethirtyeight/data/blob/b667fa08b172fdc91356e00cabf44c50955
 Sources for the code:
 https://bl.ocks.org/d3noob/bdf28027e0ce70bd132edc64f1dd7ea4
 https://bl.ocks.org/santi698/f3685ca8a1a7f5be1967f39f367437c0
-https://bl.ocks.org/mbostock/3887235
 https://stackoverflow.com/questions/979256/sorting-an-array-of-javascript-objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 http://jsfiddle.net/U97EY/
@@ -52,7 +51,7 @@ function draw(data) {
 //Sort the data from high to low with a, b and slice from 31 to get a top 30 list.
   data = data.sort(function(a, b) {
     return a.total - b.total;
-  }).reverse().slice(1,51);
+  }).reverse().slice(0,51);
 
 //Make the domain for the y & x axis. y  with a total number and x with a string of countries.
 
